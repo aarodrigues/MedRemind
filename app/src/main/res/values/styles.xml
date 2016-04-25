@@ -1,0 +1,34 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+
+        <item name="colorPrimary">@android:color/holo_blue_light</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@android:color/holo_blue_light</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+
+    <!-- Custom theme to set color on actionBar-->
+    <style name="customActionBar" parent="Theme.AppCompat.Light">
+        <item name="android:background">@android:color/holo_blue_light</item>
+    </style>
+
+    <!-- Custom theme to removing mainActivity's actionBar-->
+    <style name="customFullscreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">@android:color/holo_blue_light</item>
+        <item name="android:textColor">#FFF</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

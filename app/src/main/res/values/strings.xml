@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">MedReminder</string>
+    <string name="main">Main</string>
+    <string name="save">Save</string>
+
+    <!-- ActionBar Titles -->
+    <string name="title_reg_med">Medicine Register</string>
+    <string name="title_reg_care">Caregiver Register</string>
+    <string name="title_list_med">Medicine List</string>
+    <string name="title_list_care">Caregiver List</string>
+
+    <!-- Main Page-->
+    <string name="reg_med">Medicine Register</string>
+    <string name="view_med">Medicine List</string>
+    <string name="view_care">Caregiver List</string>
+
+    <!-- Register Medicine Page-->
+    <string name="tip_med_name">Medicine Name</string>
+    <string name="tip_lab_name">Laboratory Name</string>
+    <string name="label_med">Medicine</string>
+    <string name="label_lab">Laboratory</string>
+
+    <!-- Register Caregiver Page-->
+    <string name="tip_care_name">Responsible Name</string>
+    <string name="tip_phone">Phone Number</string>
+    <string name="tip_email">Email Adress</string>
+    <string name="label_care">Responsible</string>
+    <string name="label_phone">Phone</string>
+    <string name="label_email">Email</string>
+
+    <!-- Register Patient Page-->
+    <string name="tip_patient_name">Patient Name</string>
+    <string name="label_patient">Patient</string>
+
+    <!-- ListView Medicine-->
+    <string name="label_empty">None</string>
+    <string name="medicine_name">Medicine Name</string>
+    <string name="caregiver_name">Caregiver Name</string>
+
+
+</resources>

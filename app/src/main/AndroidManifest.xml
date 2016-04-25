@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lifedev.medreminder">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/customFullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.MedicineActivity"
+            android:parentActivityName=".activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CareGiverActivity"
+            android:parentActivityName=".activity.MedicineActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.PatientActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MedListViewActivity"
+            android:parentActivityName=".activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CareListViewActivity"
+            android:parentActivityName=".activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.PatientListViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AlarmActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.CancelAlarmActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>
