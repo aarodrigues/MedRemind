@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.lifedev.medreminder.R;
+import com.lifedev.medreminder.custom.CustomApp;
 import com.lifedev.medreminder.dao.CaregiverDAO;
 import com.lifedev.medreminder.model.Caregiver;
 
@@ -30,13 +31,10 @@ public class CareGiverActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_care_giver);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(R.string.title_reg_care);
-
-       /* if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment()).commit();
-        }*/
+        /* Customize the title of action bar */
+        CustomApp.customActionBar(getSupportActionBar(),
+                getApplicationContext(),R.string.title_reg_care,getAssets());
+        //getSupportActionBar().setTitle(R.string.title_reg_care);
 
         Intent intent = getIntent();
         this.idMedicine = intent.getLongExtra(MedicineActivity.MEDICINE_ID, 0L);

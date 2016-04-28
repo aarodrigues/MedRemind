@@ -6,13 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.lifedev.medreminder.R;
+import com.lifedev.medreminder.custom.CustomApp;
 import com.lifedev.medreminder.dao.MedicineDAO;
 import com.lifedev.medreminder.model.Medicine;
 
 
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -32,8 +30,10 @@ public class MedicineActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_medicine);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(R.string.title_reg_med);
+        /* Customize the title of action bar */
+        CustomApp.customActionBar(getSupportActionBar(),
+                getApplicationContext(),R.string.title_reg_med,getAssets());
+        //getSupportActionBar().setTitle(R.string.title_reg_med);
 
         Intent intent = getIntent();
         this.idMedicine = intent.getLongExtra(MEDICINE_ID,-1L);

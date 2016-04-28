@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.lifedev.medreminder.R;
 import com.lifedev.medreminder.adapter.ListAdapter;
+import com.lifedev.medreminder.custom.CustomApp;
 import com.lifedev.medreminder.custom.CustomRowList;
 import com.lifedev.medreminder.dao.MedicineDAO;
 import com.lifedev.medreminder.interfaces.CustomRow;
@@ -31,9 +32,12 @@ public class MedListViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(R.string.title_list_med);
-        //setContentView(R.layout.activity_med_list_view);
+
+        /* Customize the title of action bar */
+        CustomApp.customActionBar(getSupportActionBar(),
+                getApplicationContext(),R.string.title_list_med,getAssets());
+
+        //getSupportActionBar().setTitle(R.string.title_list_med);
 
         medicineDao = new MedicineDAO(this);
         medicineDao.open();
@@ -58,6 +62,7 @@ public class MedListViewActivity extends AppCompatActivity {
         onClickItem();
 
     }
+
 
     private List<CustomRow> createItemList(List<Medicine> valuesList){
 

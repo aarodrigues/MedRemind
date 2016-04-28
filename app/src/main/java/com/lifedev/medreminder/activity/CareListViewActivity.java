@@ -1,32 +1,24 @@
 package com.lifedev.medreminder.activity;
 
 import android.app.Dialog;
-import android.app.ListActivity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.lifedev.medreminder.R;
 import com.lifedev.medreminder.adapter.ListAdapter;
+import com.lifedev.medreminder.custom.CustomApp;
 import com.lifedev.medreminder.custom.CustomRowList;
 import com.lifedev.medreminder.dao.CaregiverDAO;
 import com.lifedev.medreminder.interfaces.CustomRow;
 import com.lifedev.medreminder.model.Caregiver;
-import com.lifedev.medreminder.model.Medicine;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.ListActivity;
 import android.content.DialogInterface;
 
 import android.widget.AdapterView;
@@ -40,8 +32,11 @@ public class CareListViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(R.string.title_list_care);
+
+        /* Customize the title of action bar */
+        CustomApp.customActionBar(getSupportActionBar(),
+                getApplicationContext(),R.string.title_list_care,getAssets());
+        //getSupportActionBar().setTitle(R.string.title_list_care);
 
         careDao = new CaregiverDAO(this);
         careDao.open();
