@@ -12,17 +12,22 @@ import com.lifedev.medreminder.interfaces.CustomRow;
 import com.lifedev.medreminder.model.Medicine;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import android.app.AlertDialog;
+import android.support.v7.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.widget.TextView;
 
 public class MedListViewActivity extends AppCompatActivity {
 
@@ -95,12 +100,38 @@ public class MedListViewActivity extends AppCompatActivity {
         });
     }
 
+    public List<CustomRow> createListViewDialog(LinkedHashMap<String, Integer> labels){
+        List<CustomRow> items = new ArrayList<CustomRow>();
+        int count = 0;
 
-    public Dialog onCreateDialog(final Intent intent) {
-        String[] array = {"Edit Drug","Set Alarm","View Caregiver","Add New Caregiver"};
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Escolha")
-                .setItems(array, new DialogInterface.OnClickListener() {
+        for (Map.Entry<String,Integer> label:labels.entrySet()) {
+            items.add(new CustomRowList(label.getKey(),count,label.getValue()));
+            count++;
+        }
+
+        return items;
+    }
+
+    public LinkedHashMap<String,Integer> createLabelListViewDialog(){
+
+        LinkedHashMap<String,Integer> labelMap = new LinkedHashMap();
+
+        labelMap.put(getResources().getString(R.string.edit_med_dialog),R.drawable.med_icon);
+        labelMap.put(getResources().getString(R.string.set_alarm_dialog),R.drawable.med_icon);
+        labelMap.put(getResources().getString(R.string.view_care_list_dialog),R.drawable.med_icon);
+        labelMap.put(getResources().getString(R.string.add_care_dialog),R.drawable.med_icon);
+        return labelMap;
+    }
+
+    public Dialog onCreateDialog(final Intent intent) {;
+        /* Create a Map with label and icon to show on Dialog */
+        LinkedHashMap labelMap = createLabelListViewDialog();
+        /* Create a custom adapter to show icon and text at same time */
+        ListAdapter adapter = new ListAdapter(this,1,createListViewDialog(labelMap));
+        AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.AppCompatAlertDialogStyle);
+
+        builder.setTitle(getResources().getString(R.string.choose_dialog))
+                .setAdapter(adapter, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
                         switch (which) {

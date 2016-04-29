@@ -31,4 +31,19 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!-- Custom Alert Dialog -->
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">#5fa3d0</item>
+        <item name="android:textColor">#33b5e5</item>
+        <item name="android:background">#000000</item>
+        <item name="android:windowTitleStyle">@style/DialogTitleCustom</item>
+    </style>
+
+    <!-- Custom Dialog Title used by AppCompatAlertDialogStyle -->
+    <style name="DialogTitleCustom">
+        <item name="android:textColor">@android:color/holo_blue_light</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
