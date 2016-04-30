@@ -40,9 +40,13 @@
     <!-- Dialog ListView-->
     <string name="choose_dialog">Choose</string>
     <string name="edit_med_dialog">Edit Medicine</string>
+    <string name="edit_care_dialog">Edit Caregiver</string>
     <string name="set_alarm_dialog">Set Alarm</string>
     <string name="view_care_list_dialog">View Caregiver List</string>
     <string name="add_care_dialog">Add Caregiver</string>
+    <string name="view_med_list_dialog">View Medicine List</string>
+
+
 
 
 </resources>

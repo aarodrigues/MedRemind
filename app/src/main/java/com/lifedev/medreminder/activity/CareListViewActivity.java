@@ -10,6 +10,7 @@ import android.widget.ListView;
 import com.lifedev.medreminder.R;
 import com.lifedev.medreminder.adapter.ListAdapter;
 import com.lifedev.medreminder.custom.CustomApp;
+import com.lifedev.medreminder.custom.CustomDialogRow;
 import com.lifedev.medreminder.custom.CustomRowList;
 import com.lifedev.medreminder.dao.CaregiverDAO;
 import com.lifedev.medreminder.interfaces.CustomRow;
@@ -36,7 +37,6 @@ public class CareListViewActivity extends AppCompatActivity {
         /* Customize the title of action bar */
         CustomApp.customActionBar(getSupportActionBar(),
                 getApplicationContext(),R.string.title_list_care,getAssets());
-        //getSupportActionBar().setTitle(R.string.title_list_care);
 
         careDao = new CaregiverDAO(this);
         careDao.open();
@@ -91,7 +91,7 @@ public class CareListViewActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 // get item's id and add to intent
                 intent.putExtra(CareGiverActivity.CAREGIVER_ID_INTEND, (long) customRow.getId());
-                Dialog dialogChoose = onCreateDialog(intent);
+                Dialog dialogChoose = CustomApp.onCreateDialog(intent,CareListViewActivity.this,getResources(),createLabelListViewDialog());
                 dialogChoose.show();
 
             }
@@ -99,34 +99,13 @@ public class CareListViewActivity extends AppCompatActivity {
     }
 
 
+    private List<CustomDialogRow> createLabelListViewDialog(){
+        ArrayList<CustomDialogRow> dialogRowsArrayList = new ArrayList<CustomDialogRow>();
 
-    public Dialog onCreateDialog(final Intent intent) {
-        String[] array = {"Edit","Delete"};
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Escolha")
-                .setItems(array, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
+        dialogRowsArrayList.add(new CustomDialogRow(getResources().getString(R.string.edit_care_dialog),R.drawable.med_icon,"CareGiverActivity"));
+        dialogRowsArrayList.add(new CustomDialogRow(getResources().getString(R.string.view_med_list_dialog),R.drawable.med_icon,"MedListViewActivity"));
 
-                        switch (which) {
-                            case 0:
-
-                                intent.setClassName("com.lifedev.medreminder", "com.lifedev.medreminder.activity.CareGiverActivity");
-                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                startActivity(intent);
-                                break;
-
-                            case 1:
-
-//							intent.setClassName("com.app.carehealth", "com.app.carehealth.AlarmActivity");
-//					        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//					        startActivity(intent);
-                                break;
-
-                            default:
-                                break;
-                        }
-                    }
-                });
-        return builder.create();
+        return dialogRowsArrayList;
     }
+
 }
